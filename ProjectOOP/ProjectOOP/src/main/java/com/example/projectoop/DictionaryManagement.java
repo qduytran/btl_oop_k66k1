@@ -1,15 +1,17 @@
 package com.example.projectoop;
 
 import java.io.*;
-import java.util.List;
+import java.net.URL;
 import java.util.Scanner;
+import java.nio.file.Paths;
 
 public class DictionaryManagement {
     private Dictionary dictionary = new Dictionary();
 
-    public void ínsertFromFile(String path) {
+    public void insertFromFile(String name) {
         try {
-            FileReader fr = new FileReader(path);
+            name = "ProjectOOP/src/main/resources/com/example/projectoop/" + name;
+            FileReader fr = new FileReader(name);
             BufferedReader br = new BufferedReader(fr);
             String line;
             while ((line = br.readLine()) != null) {
@@ -19,6 +21,8 @@ public class DictionaryManagement {
             }
             br.close();
             fr.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error open file");
         } catch (IOException e) {
             System.out.println("Error read file");
         } catch (Exception e) {
@@ -26,9 +30,10 @@ public class DictionaryManagement {
         }
     }
 
-    public  void dictionaryExportToFile(String path) {
+    public  void dictionaryExportToFile(String name) {
         try {
-            FileWriter fr = new FileWriter(path);
+            name = "ProjectOOP/src/main/resources/com/example/projectoop/" + name;
+            FileWriter fr = new FileWriter(name);
             BufferedWriter br = new BufferedWriter(fr);
             for (Word word:
                  dictionary.values()) {
@@ -39,6 +44,42 @@ public class DictionaryManagement {
             System.out.println("Error read file");
         } catch (Exception e) {
             System.out.println("Error");
+        }
+    }
+
+    public Word dictionaryLookup(String word_target) {
+        // kiem tra word_target có nằm trong từ điển hay không
+        if (dictionary.containsKey(word_target)) {
+            return dictionary.get(word_target);
+        } else return null;
+    }
+
+    public boolean dictionaryDelete(String word_target) {
+        if (dictionary.containsKey(word_target)) {
+            dictionary.remove(word_target);
+            if (!dictionary.containsKey(word_target))
+                return true; // delete thành công
+            else
+                return false; // delete không thành công
+        } return false;
+    }
+
+    public boolean dictionaryUpdate(Word newWord) {
+        if (dictionary.containsKey(newWord.getWordTarget())) {
+            dictionary.replace(newWord.getWordTarget(), newWord);
+            if (newWord.getWordTarget().equals(dictionary.get(newWord.getWordTarget())))
+                return true; // update thành công
+            else
+                return false; // update khoong thành công
+        } return false;
+    }
+
+    public boolean dictionaryAdd(Word newWord) {
+        if (!dictionary.containsKey(newWord.getWordTarget())) {
+            dictionary.put(newWord.getWordTarget(), newWord);
+            return true;
+        } else {
+            return false;
         }
     }
 

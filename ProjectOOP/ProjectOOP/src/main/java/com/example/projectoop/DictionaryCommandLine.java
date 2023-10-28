@@ -12,7 +12,8 @@ public class DictionaryCommandLine {
     }
 
     public void dictionaryBasic() {
-        DM.insertFromCommandLine();
-        showAllWords();
+        //DM.insertFromCommandLine();
+        DM.insertFromFile("WordList.txt");
+        DM.dictionaryExportToFile("WordListOut.txt");
     }
 }
