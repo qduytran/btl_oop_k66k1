@@ -47,39 +47,41 @@ public class DictionaryManagement {
         }
     }
 
-    public Word dictionaryLookup(String word_target) {
+    public void dictionaryLookup(String word_target) {
         // kiem tra word_target có nằm trong từ điển hay không
         if (dictionary.containsKey(word_target)) {
-            return dictionary.get(word_target);
-        } else return null;
+            System.out.println(word_target + " | " + dictionary.get(word_target));
+        } else System.out.println("khong co trong tu dien");
     }
 
-    public boolean dictionaryDelete(String word_target) {
+    public void dictionaryDelete(String word_target) {
         if (dictionary.containsKey(word_target)) {
             dictionary.remove(word_target);
             if (!dictionary.containsKey(word_target))
-                return true; // delete thành công
+                System.out.println("xoa thanh cong");
             else
-                return false; // delete không thành công
-        } return false;
+                System.out.println("xoa khong thanh cong");
+        } else
+            System.out.println("khong co trong tu dien");
     }
 
-    public boolean dictionaryUpdate(Word newWord) {
+    public void dictionaryUpdate(Word newWord) {
         if (dictionary.containsKey(newWord.getWordTarget())) {
             dictionary.replace(newWord.getWordTarget(), newWord);
-            if (newWord.getWordTarget().equals(dictionary.get(newWord.getWordTarget())))
-                return true; // update thành công
+            if (newWord.getWordExplain().equals(dictionary.get(newWord.getWordTarget())))
+                System.out.println("update thanh cong");
             else
-                return false; // update khoong thành công
-        } return false;
+                System.out.println("update khong thanh cong");
+        } else
+            System.out.println(newWord.getWordTarget() + " khong co trong tu dien");
     }
 
-    public boolean dictionaryAdd(Word newWord) {
+    public void dictionaryAdd(Word newWord) {
         if (!dictionary.containsKey(newWord.getWordTarget())) {
             dictionary.put(newWord.getWordTarget(), newWord);
-            return true;
+            System.out.println("Add thanh cong");
         } else {
-            return false;
+            System.out.println("Add khong thanh cong");
         }
     }
 
