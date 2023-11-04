@@ -101,7 +101,7 @@ public class DictionaryCommandLine {
 
     public void dictionaryBasic() {
         //DM.insertFromCommandLine();
-        DM.insertFromFile("WordList.txt");
-        DM.dictionaryExportToFile("WordListOut.txt");
+        DM.insertFromFile("/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/WordList.txt");
+        DM.dictionaryExportToFile("/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/file_export.txt");
     }
 }
