@@ -1,16 +1,17 @@
-// module com.example.projectoop {
-//     requires javafx.controls;
-//     requires javafx.fxml;
-//     requires javafx.web;
 
-//     requires org.controlsfx.controls;
-//     requires com.dlsc.formsfx;
-//     requires net.synedra.validatorfx;
-//     requires org.kordamp.ikonli.javafx;
-//     requires org.kordamp.bootstrapfx.core;
-//     requires eu.hansolo.tilesfx;
-//     requires com.almasb.fxgl.all;
+ module com.example.projectoop {
+     requires javafx.controls;
+     requires javafx.fxml;
+     requires javafx.web;
 
-//     opens com.example.projectoop to javafx.fxml;
-//     exports com.example.projectoop;
-// }
+     requires org.controlsfx.controls;
+     requires com.dlsc.formsfx;
+     requires net.synedra.validatorfx;
+     requires org.kordamp.ikonli.javafx;
+     requires org.kordamp.bootstrapfx.core;
+    // requires eu.hansolo.tilesfx;
+     requires com.almasb.fxgl.all;
+
+     opens com.example.projectoop to javafx.fxml;
+     exports com.example.projectoop;
+ }
