@@ -2,6 +2,8 @@ package com.example.projectoop;
 
 import java.util.Scanner;
 
+import game.GameManagement;
+
 public class DictionaryCommandLine {
     private DictionaryManagement DM = new DictionaryManagement();
 
@@ -24,10 +26,12 @@ public class DictionaryCommandLine {
 
     public void yourAction() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Your Action:");
-        int opt = input.nextInt();
-        input.nextLine();
-        while (opt != 0) {
+        int opt;
+        do {
+            menu();
+            System.out.println("Your Action:");
+            opt = input.nextInt();
+            input.nextLine();
             switch (opt) {
                 case 1: {
                     System.out.println("Nhap tu Tieng Anh");
@@ -58,21 +62,33 @@ public class DictionaryCommandLine {
                     break;
                 }
                 case 5: {
-                    System.out.println("Nhap tu Tieng Anh can lookup");
-                    String word_target = input.nextLine();
-                    DM.dictionaryLookup(word_target);
+                    System.out.println("Nhap tu Tieng Viet can look up");
+                    String word_explain = input.nextLine();
+                    DM.dictionaryLookUp(word_explain);
                     break;
+                }
+                case 6: {
+                    System.out.println("Nhap tu Tieng Anh can search");
+                    String word_target = input.nextLine();
+                    DM.dictionarySearch(word_target);
+                    break;
+                }
+                case 7: {
+                    GameManagement game = new GameManagement();
+                    game.printMenu();
                 }
                 case 8: {
                     DM.insertFromFile("WordList.txt");
                     break;
                 }
+                case 9: {
+                    DM.dictionaryExportToFile("file_export.txt");
+                    break;
+                }
 
             }
-            System.out.println("Your acion:");
-            opt = input.nextInt();
-            input.nextLine();
-        }
+
+        }while (opt != 0);
     }
 
     public void showAllWords() {

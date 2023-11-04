@@ -10,7 +10,9 @@ public class DictionaryManagement {
 
     public void insertFromFile(String name) {
         try {
-            name = "ProjectOOP/src/main/resources/com/example/projectoop/" + name;
+            name = "/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/" + name;
+            // \data\WordList.txt
+            // \src\main\java\com\example\projectoop\DictionaryManagement.java
             FileReader fr = new FileReader(name);
             BufferedReader br = new BufferedReader(fr);
             String line;
@@ -32,7 +34,7 @@ public class DictionaryManagement {
 
     public  void dictionaryExportToFile(String name) {
         try {
-            name = "ProjectOOP/src/main/resources/com/example/projectoop/" + name;
+            name = "/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/" + name;
             FileWriter fr = new FileWriter(name);
             BufferedWriter br = new BufferedWriter(fr);
             for (Word word:
@@ -40,6 +42,8 @@ public class DictionaryManagement {
                 br.write(word.getWordTarget() + "\t" + word.getWordExplain());
                 br.newLine();
             }
+            br.close();
+            fr.close();
         } catch (IOException e) {
             System.out.println("Error read file");
         } catch (Exception e) {
@@ -47,11 +51,24 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionaryLookup(String word_target) {
+    public void dictionarySearch(String word_target) {
         // kiem tra word_target có nằm trong từ điển hay không
         if (dictionary.containsKey(word_target)) {
-            System.out.println(word_target + " | " + dictionary.get(word_target));
-        } else System.out.println("khong co trong tu dien");
+            System.out.println(word_target + " | " + dictionary.get(word_target).getWordExplain());
+        } else 
+            System.out.println("khong co trong tu dien");
+    }
+
+    public void dictionaryLookUp(String word_explain) {
+        int flag = 0;
+        for (Word word : dictionary.values()) {
+            if (word.getWordExplain().equals(word_explain)) {
+                flag++;
+                System.out.println(word.getWordTarget() + " | " + word.getWordExplain());
+            }
+        }
+        if (flag == 0) 
+            System.out.println("khong co trong tu dien");
     }
 
     public void dictionaryDelete(String word_target) {
@@ -100,7 +117,7 @@ public class DictionaryManagement {
             dictionary.put(wordTarget, word);
         }
         sn.close();
-    }
+    } 
 
     public Dictionary getDictionary() {
         return this.dictionary;
