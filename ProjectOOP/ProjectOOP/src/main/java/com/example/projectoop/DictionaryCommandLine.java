@@ -90,7 +90,6 @@ public class DictionaryCommandLine {
 
         }while (opt != 0);
     }
-
     public void showAllWords() {
         System.out.println("No | English | Vietnamese");
         int i = 1;

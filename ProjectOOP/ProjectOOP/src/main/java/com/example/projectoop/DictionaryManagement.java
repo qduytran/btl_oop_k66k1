@@ -1,8 +1,9 @@
 package com.example.projectoop;
 
 import java.io.*;
-import java.net.URL;
+import java.util.List;
 import java.util.Scanner;
+import java.net.URL;
 import java.nio.file.Paths;
 
 public class DictionaryManagement {
@@ -117,7 +118,7 @@ public class DictionaryManagement {
             dictionary.put(wordTarget, word);
         }
         sn.close();
-    } 
+    }
 
     public Dictionary getDictionary() {
         return this.dictionary;
