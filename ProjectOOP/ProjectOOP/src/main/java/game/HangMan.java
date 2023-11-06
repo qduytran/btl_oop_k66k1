@@ -118,7 +118,7 @@ public class HangMan extends GameManagement {
       System.out.println("Reading data from Hangman...");
 
       try {
-         Scanner sc = new Scanner(new File( "/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/HangmanData.txt"));
+         Scanner sc = new Scanner(new File( "btl_oop_k66k1/ProjectOOP/ProjectOOp/data/HangmanData.txt"));
 
          while(sc.hasNext()) {
             String tmp = sc.nextLine();
