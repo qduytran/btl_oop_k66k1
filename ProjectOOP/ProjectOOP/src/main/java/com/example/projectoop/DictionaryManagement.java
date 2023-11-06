@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.Set;
 
 public class DictionaryManagement {
     private Dictionary dictionary = new Dictionary();
@@ -52,12 +53,25 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionarySearch(String word_target) {
-        // kiem tra word_target có nằm trong từ điển hay không
-        if (dictionary.containsKey(word_target)) {
-            System.out.println(word_target + " | " + dictionary.get(word_target).getWordExplain());
-        } else 
-            System.out.println("khong co trong tu dien");
+    public void dictionarySearch(String key) {
+        Set<String> keySet = dictionary.keySet();
+        int len_key = key.length();
+        boolean check = false;
+        for (String word : keySet) {
+            int len_word = word.length();
+            if (len_word < len_key)
+                continue;
+            else {
+                String tmp = word.substring(0, len_key);
+                if (tmp.compareTo(key) == 0) {
+                    check = true;
+                    System.out.println(word + " | " + dictionary.get(word) + "\n");
+                }
+            }
+        }
+        if (check == false) {
+            System.out.println("Không có từ nào như vậy!");
+        }
     }
 
     public void dictionaryLookUp(String word_explain) {
