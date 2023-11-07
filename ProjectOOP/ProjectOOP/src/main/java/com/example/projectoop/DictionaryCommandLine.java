@@ -26,14 +26,16 @@ public class DictionaryCommandLine {
 
     public void yourAction() {
         Scanner input = new Scanner(System.in);
-        int opt;
+        String opt;
         do {
             menu();
             System.out.println("Your Action:");
-            opt = input.nextInt();
+            opt = input.next();
             input.nextLine();
             switch (opt) {
-                case 1: {
+                case "0":
+                    break;
+                case "1": {
                     System.out.println("Nhap tu Tieng Anh");
                     String wordTarget = input.nextLine();
                     System.out.println("Nhap giai thich nghia bang Tieng Viet");
@@ -42,13 +44,13 @@ public class DictionaryCommandLine {
                     DM.dictionaryAdd(word);
                     break;
                 }
-                case 2: {
+                case "2": {
                     System.out.println("Nhap tu Tieng Anh can xoa");
                     String word_target = input.nextLine();
                     DM.dictionaryDelete(word_target);
                     break;
                 }
-                case 3: {
+                case "3": {
                     System.out.println("Nhap tu Tieng Anh can update");
                     String wordTarget = input.nextLine();
                     System.out.println("Nhập nghĩa cần update:");
@@ -57,44 +59,45 @@ public class DictionaryCommandLine {
                     DM.dictionaryUpdate(word);
                     break;
                 }
-                case 4: {
+                case "4": {
                     this.showAllWords();
                     break;
                 }
-                case 5: {
+                case "5": {
                     System.out.println("Nhap tu Tieng Viet can look up");
                     String word_explain = input.nextLine();
                     DM.dictionaryLookUp(word_explain);
                     break;
                 }
-                case 6: {
+                case "6": {
                     System.out.println("Nhap tu Tieng Anh can search");
                     String word_target = input.nextLine();
                     DM.dictionarySearch(word_target);
                     break;
                 }
-                case 7: {
+                case "7": {
                     GameManagement game = new GameManagement();
                     game.printMenu();
                 }
-                case 8: {
+                case "8": {
                     DM.insertFromFile("WordList.txt");
                     break;
                 }
-                case 9: {
+                case "9": {
                     DM.dictionaryExportToFile("file_export.txt");
                     break;
                 }
-
+                default:
+                    System.out.println("Action not supported!");
             }
 
-        }while (opt != 0);
+        }while (opt.compareTo("0") != 0);
     }
     public void showAllWords() {
-        System.out.println("No | English | Vietnamese");
+        System.out.printf("%-10s | %-32s | %-32s\n", "STT", "English", "Vietnamese");
         int i = 1;
         for (Word word:DM.getDictionary().values()) {
-            System.out.println(i + " | " + word.getWordTarget() + " | " + word.getWordExplain());
+            System.out.printf("%-10s | %-32s | %-32s\n",i, word.getWordTarget(), word.getWordExplain());
             i++;
         }
     }
