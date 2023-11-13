@@ -74,11 +74,11 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionaryLookUp(String word_explain) {
+    public void dictionaryLookUp(String word_target) {
         int flag = 0;
         System.out.printf("%-10s | %-32s | %-32s\n", "STT", "English", "Vietnamese");
         for (Word word : dictionary.values()) {
-            if (word.getWordExplain().equals(word_explain)) {
+            if (word.getWordTarget().equals(word_target)) {
                 flag++;
                 System.out.printf("%-10s | %-32s | %-32s\n", flag, word.getWordTarget(), word.getWordExplain());
             }
