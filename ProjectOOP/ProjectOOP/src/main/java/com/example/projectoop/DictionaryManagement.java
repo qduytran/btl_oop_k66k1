@@ -3,6 +3,7 @@ package com.example.projectoop;
 import java.io.*;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Set;
@@ -74,16 +75,17 @@ public class DictionaryManagement {
         }
     }
 
-    public void dictionaryLookUp(String word_explain) {
+    public void dictionaryLookUp(String word_target) {
         int flag = 0;
+        System.out.printf("%-10s | %-32s | %-32s\n", "STT", "English", "Vietnamese");
         for (Word word : dictionary.values()) {
-            if (word.getWordExplain().equals(word_explain)) {
+            if (word.getWordTarget().equals(word_target)) {
                 flag++;
-                System.out.println(word.getWordTarget() + " | " + word.getWordExplain());
+                System.out.printf("%-10s | %-32s | %-32s\n", flag, word.getWordTarget(), word.getWordExplain());
             }
         }
         if (flag == 0) 
-            System.out.println("khong co trong tu dien");
+            System.out.println("Khong co trong tu dien");
     }
 
     public void dictionaryDelete(String word_target) {

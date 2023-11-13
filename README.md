@@ -1,1 +1,1 @@
-# btl_oop_k66k1
+# Dictionary By Vũ Ngọc Duy & Trần Quang Duy
