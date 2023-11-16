@@ -1,9 +1,15 @@
 package dictionary;
 
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.net.URL;
 import java.nio.file.Paths;
 import word.*;
@@ -85,6 +91,40 @@ public class DictionaryManagement {
         }
         if (flag == 0)
             System.out.println("Khong co trong tu dien");
+    }
+
+    public ObservableList<String> lookUp(String word_target) {
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        for (Word word : dictionary.values()) {
+            if (word.getWordTarget().equals(word_target)) {
+                results.add(word.getWordTarget());
+            }
+        }
+
+        return results;
+    }
+
+    public ObservableList<String> search(String key) {
+        ObservableList<String> results = FXCollections.observableArrayList();
+
+        Set<String> keySet = dictionary.keySet();
+        int len_key = key.length();
+
+        for (String word : keySet) {
+            int len_word = word.length();
+            if (len_word < len_key)
+                continue;
+            else {
+                String tmp = word.substring(0, len_key);
+                if (tmp.compareTo(key) == 0) {
+
+                    results.add(word);
+                }
+            }
+        }
+        
+        return results;
     }
 
     public void dictionaryDelete(String word_target) {
