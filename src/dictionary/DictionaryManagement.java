@@ -20,7 +20,6 @@ public class DictionaryManagement {
     public void insertFromFile(String name) {
         try {
             name = "resources/data/" + name;
-            System.out.println(name);
             FileReader fr = new FileReader(name);
             BufferedReader br = new BufferedReader(fr);
             String line;
@@ -118,7 +117,6 @@ public class DictionaryManagement {
             else {
                 String tmp = word.substring(0, len_key);
                 if (tmp.compareTo(key) == 0) {
-
                     results.add(word);
                 }
             }

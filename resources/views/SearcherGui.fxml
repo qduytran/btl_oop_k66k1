@@ -13,15 +13,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="510.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearcherController">
+<AnchorPane prefHeight="510.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearcherController">
    <children>
         <Pane layoutX="8.0" prefHeight="91.0" prefWidth="751.0" stylesheets="@../style.css">
             <children>
-            <ImageView fitHeight="120.0" fitWidth="110.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../images/logo.png" />
-               </image>
-            </ImageView>
             <Label fx:id="notAvailableAlert" alignment="CENTER" layoutX="250.0" layoutY="60.0" opacity="0.9" prefHeight="20.0" prefWidth="230.0" styleClass="warning-alert" stylesheets="@../style.css" text="Rất tiếc từ điển không cung cấp từ này">
                <graphic>
                   <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
@@ -53,16 +48,6 @@
                   </Button>
                </children>
             </Pane>
-            <ImageView fitHeight="72.0" fitWidth="110.0" layoutX="14.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/logo.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="78.0" fitWidth="110.0" layoutX="617.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/img1.jpg" />
-               </image>
-            </ImageView>
             </children>
         </Pane>
         <AnchorPane layoutY="92.0" prefHeight="415.0" prefWidth="769.0" styleClass="main-searcher" stylesheets="@../style.css">

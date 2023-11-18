@@ -9,35 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="510.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DictionaryApplication.Controllers.TranslationController">
-    <Pane prefHeight="91.0" prefWidth="769.0" styleClass="header" stylesheets="@../style.css">
-        <children>
-         <Pane layoutX="240.0" layoutY="20.0">
-            <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" prefHeight="40.0" prefWidth="308.0" text="Don't be the same, be better" textFill="#9f45b0">
-                      <font>
-                          <Font name="System Bold Italic" size="20.0" />
-                      </font>
-                  </Label>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="22.0" prefHeight="40.0" prefWidth="308.0" text="Đừng giống nhau, hãy làm tốt hơn" textFill="#9f45b0">
-                      <font>
-                          <Font name="System Italic" size="18.0" />
-                      </font>
-                  </Label>
-            </children>
-         </Pane>
-            <ImageView fitHeight="83.0" fitWidth="55.0" layoutX="185.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/person1.jpg" />
-                </image>
-            </ImageView>
-            <ImageView fitHeight="83.0" fitWidth="55.0" layoutX="550.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@../images/person2.jpg" />
-                </image>
-            </ImageView>
-        </children>
-    </Pane>
+<AnchorPane prefHeight="510.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TranslationController">
     <AnchorPane layoutY="91.0" prefHeight="419.0" prefWidth="769.0">
         <children>
             <Pane layoutX="2.0" prefHeight="45.0" prefWidth="764.0" styleClass="title" stylesheets="@../style.css">
