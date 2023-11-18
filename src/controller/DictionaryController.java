@@ -22,7 +22,7 @@ public class DictionaryController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 showComponent("/views/SearcherGui.fxml");
-                System.out.println("Hihi");
+                System.out.println("Đang ở giao diện tìm kiếm từ!");
             }
         });
 
@@ -30,7 +30,7 @@ public class DictionaryController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 showComponent("/views/AdditionGui.fxml");
-                System.out.println("Haha");
+                System.out.println("Đang ở giao diện thêm từ!");
             }
         });
 
@@ -38,13 +38,22 @@ public class DictionaryController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 showComponent("/views/TranslationGui.fxml");
-                System.out.println("Huhu");
+                System.out.println("Đang ở giao diện dịch từ dùng API!");
+            }
+        });
+
+        gameBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                showComponent("/views/GameGui.fxml");
+                System.out.println("Đang ở giao diện game!");
             }
         });
 
         tooltip1.setShowDelay(Duration.seconds(0.5));
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
+        tooltip4.setShowDelay(Duration.seconds(0.5));
         // showComponent("/Views/DictionaryGui.fxml");
 
         closeBtn.setOnMouseClicked(e -> {
@@ -68,10 +77,10 @@ public class DictionaryController implements Initializable {
     }
 
     @FXML
-    private Tooltip tooltip1, tooltip2, tooltip3;
+    private Tooltip tooltip1, tooltip2, tooltip3, tooltip4;
 
     @FXML
-    private Button addWordBtn, translateBtn, searchWordBtn, closeBtn;
+    private Button addWordBtn, translateBtn, searchWordBtn, closeBtn, gameBtn;
 
     @FXML
     private AnchorPane container;

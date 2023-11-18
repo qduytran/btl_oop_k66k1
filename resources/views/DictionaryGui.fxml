@@ -73,6 +73,24 @@
                   <Tooltip fx:id="tooltip3" text="Phiên dịch" />
               </tooltip>
           </Button>
+      <Button fx:id="gameBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="1.0" layoutY="70.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="52.0" styleClass="menu-item" stylesheets="@../style.css" text="Game">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip fx:id="tooltip4" text="Chơi game" />
+         </tooltip>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icons8_brick_64px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
       <AnchorPane fx:id="container" layoutX="52.0" layoutY="9.0" prefHeight="510.0" prefWidth="769.0" styleClass="container" stylesheets="@../style.css" />
     </children>
 </AnchorPane>

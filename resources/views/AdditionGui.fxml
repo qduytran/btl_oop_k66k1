@@ -57,7 +57,7 @@
                     </graphic>
                 </Label>
                 <TextArea fx:id="explanationInput" layoutX="31.0" layoutY="155.0" prefHeight="200.0" prefWidth="386.0" promptText="Nhập giải nghĩa của từ...." styleClass="meaning-input" stylesheets="@../style.css" wrapText="true" />
-                <Button fx:id="addBtn" layoutX="31.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleClickAddBtn" prefHeight="32.0" prefWidth="60.0" styleClass="add-button" stylesheets="@../style.css" text="Thêm " />
+                <Button fx:id="addBtn" layoutX="31.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleOnClicked" prefHeight="32.0" prefWidth="60.0" styleClass="add-button" stylesheets="@../style.css" text="Thêm " />
             <Label fx:id="successAlert" alignment="CENTER" layoutX="141.0" layoutY="363.0" prefHeight="32.0" prefWidth="273.0" styleClass="success-alert" stylesheets="@../style.css" text="Thành công">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
