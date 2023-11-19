@@ -15,7 +15,7 @@ public class Word {
         this.word_explain = word_explain;
     }
 
-    public void setWordExplain(String wor_explain) {
+    public void setWordExplain(String word_explain) {
         this.word_explain = word_explain;
     }
 

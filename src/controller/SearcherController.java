@@ -1,32 +1,25 @@
 package controller;
 
-import dictionary.Dictionary;
-import dictionary.DictionaryManagement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class SearcherController implements Initializable {
+import word.Word;
+
+public class SearcherController extends DictionaryController {
     private ObservableList<String> list = FXCollections.observableArrayList();
-    private static Dictionary dictionary;
-    private static DictionaryManagement dm = new DictionaryManagement();
-    static {
-        dm.insertFromFile("WordList.txt");
-        dictionary = dm.getDictionary();
-    }
+
     @FXML
     private TextField searchTerm;
 
@@ -109,22 +102,28 @@ public class SearcherController implements Initializable {
 
     @FXML
     private void handleClickEditBtn() {
-
+        explanation.setEditable(true);
+        saveBtn.setVisible(true);
     }
 
     @FXML
     private void handleClickSoundBtn() {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
-        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin");
         String selectedWord = listResults.getSelectionModel().getSelectedItem();
         if (voice != null) {
             voice.allocate();
             voice.speak(dictionary.get(selectedWord).getWordTarget());
-        } else throw new IllegalStateException("Cannot find voice: kevin16");
+        } else throw new IllegalStateException("Cannot find voice: kevin");
     }
+
     @FXML
     private void handleClickSaveBtn() {
+        Word newWord = new Word(englishWord.getText(), explanation.getText());
+        dm.dictionaryUpdate(newWord);
 
+        saveBtn.setVisible(false);
+        explanation.setEditable(false);
     }
 
     @FXML
