@@ -1,17 +1,12 @@
 package dictionary;
 
 import java.io.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.net.URL;
-import java.nio.file.Paths;
 import word.*;
 
 public class DictionaryManagement {
@@ -89,7 +84,7 @@ public class DictionaryManagement {
             }
         }
         if (flag == 0)
-            System.out.println("Khong co trong tu dien");
+            System.out.println("Không có trong từ điển!");
     }
 
     public ObservableList<String> lookUp(String word_target) {
@@ -139,10 +134,8 @@ public class DictionaryManagement {
     public void dictionaryUpdate(Word newWord) {
         if (dictionary.containsKey(newWord.getWordTarget())) {
             dictionary.replace(newWord.getWordTarget(), newWord);
-            if (newWord.getWordExplain().equals(dictionary.get(newWord.getWordTarget())))
-                System.out.println("update thanh cong");
-            else
-                System.out.println("update khong thanh cong");
+            
+            System.out.println("Update thanh cong");
         } else
             System.out.println(newWord.getWordTarget() + " khong co trong tu dien");
     }
@@ -150,9 +143,9 @@ public class DictionaryManagement {
     public void dictionaryAdd(Word newWord) {
         if (!dictionary.containsKey(newWord.getWordTarget())) {
             dictionary.put(newWord.getWordTarget(), newWord);
-            System.out.println("Add thanh cong");
+            System.out.println("Add thành công");
         } else {
-            System.out.println("Add khong thanh cong");
+            System.out.println("Add không thành công");
         }
     }
 
@@ -173,6 +166,17 @@ public class DictionaryManagement {
         sn.close();
     }
 
+    public void setTimeout(Runnable runnable, int delay) {
+        new Thread(() -> {
+            try {
+                Thread.sleep(delay);
+                runnable.run();
+            } catch (Exception e) {
+                System.err.println(e);
+            }
+        }).start();
+    }
+    
     public Dictionary getDictionary() {
         return this.dictionary;
     }

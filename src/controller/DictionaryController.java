@@ -15,7 +15,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dictionary.Dictionary;
+import dictionary.DictionaryManagement;
+
 public class DictionaryController implements Initializable {
+    protected static Dictionary dictionary;
+    protected static DictionaryManagement dm = new DictionaryManagement();
+    static {
+        dm.insertFromFile("WordList.txt");
+        dictionary = dm.getDictionary();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         searchWordBtn.setOnAction(new EventHandler<ActionEvent>() {
