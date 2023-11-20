@@ -12,7 +12,7 @@ import word.*;
 public class DictionaryManagement {
     private Dictionary dictionary = new Dictionary();
 
-    public void insertFromFile(String name) {
+    public void insertFromFile1(String name) {
         try {
             name = "resources/data/" + name;
             FileReader fr = new FileReader(name);
@@ -34,6 +34,54 @@ public class DictionaryManagement {
         }
     }
 
+    public void insertFromFile(String name) {
+        try {
+            String path = "resources/data/" + name;
+            FileReader fileReader = new FileReader(path);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+    
+            String line;
+            String englishWord = "";
+            StringBuilder meaningBuilder = new StringBuilder();
+    
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.startsWith("|")) {
+                    if (!englishWord.isEmpty()) {
+                        Word word = new Word();
+                        word.setWordTarget(englishWord.trim());
+                        word.setWordExplain(meaningBuilder.toString().trim());
+                        dictionary.put(englishWord, word);
+    
+                        // Reset giá trị cho từ mới và nghĩa mới
+                        englishWord = "";
+                        meaningBuilder = new StringBuilder();
+                    }
+                    // Xử lý từ tiếp theo
+                    englishWord = line.replace("|", "").trim();
+                } else {
+                    // Xử lý nghĩa của từ
+                    meaningBuilder.append(line).append("\n");
+                }
+            }
+    
+            // Xử lý từ cuối cùng trong tệp
+            if (!englishWord.isEmpty()) {
+                Word word = new Word();
+                word.setWordTarget(englishWord.trim());
+                word.setWordExplain(meaningBuilder.toString().trim());
+                dictionary.put(englishWord, word);
+            }
+    
+            bufferedReader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred with file: " + e);
+        } catch (Exception e) {
+            System.out.println("Something went wrong: " + e);
+        }
+    }
+    
+    
+    
     public void dictionaryExportToFile(String name) {
         try {
             name = "resources/data/" + name;

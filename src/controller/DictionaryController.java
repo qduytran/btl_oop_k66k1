@@ -22,7 +22,7 @@ public class DictionaryController implements Initializable {
     protected static Dictionary dictionary;
     protected static DictionaryManagement dm = new DictionaryManagement();
     static {
-        dm.insertFromFile("WordList.txt");
+        dm.insertFromFile("dictionaries.txt");
         dictionary = dm.getDictionary();
     }
 
