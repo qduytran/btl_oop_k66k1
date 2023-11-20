@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,36 +69,32 @@ public class TranslationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        final ComboBox<String> comboBox1 = new ComboBox<>();
-        comboBox1.getItems().addAll("Tiếng Anh", "Tiếng Việt", "Tiếng Trung", "Phát hiện ngôn ngữ");
-        //comboBox1.setItems(FXCollections.observableArrayList("Tiếng Anh", "Tiếng Việt", "Tiếng Trung", "Phát hiện ngôn ngữ"));
-        comboBox1.setValue("Phát hiện ngôn ngữ");
-
-        final ComboBox<String> comboBox2 = new ComboBox<>();
-        comboBox2.getItems().addAll("Tiếng Anh", "Tiếng Việt", "Tiếng Trung", "Phát hiện ngôn ngữ");
-        //comboBox2.setItems(FXCollections.observableArrayList("Tiếng Anh", "Tiếng Việt", "Tiếng Trung", "Phát hiện ngôn ngữ"));
-        comboBox2.setValue("Tiếng Anh");
+        ObservableList<String> list = FXCollections.observableArrayList("Tiếng Anh", "Tiếng Việt", "Tiếng Trung", "Phát hiện ngôn ngữ");
+        comboBox1.setItems(list);
+        comboBox2.setItems(list);
 
         comboBox1.setOnAction(e -> {
-            if (comboBox1.getValue().equals("Tiếng Anh")) {
-                lang_second = "en";
-            } else if (comboBox1.getValue().equals("Tiếng Việt")) {
-                lang_second = "vi";
-            } else if (comboBox1.getValue().equals("Tiếng Trung")) {
-                lang_second = "zh-tw";
-            } else if (comboBox1.getValue().equals("Tiếng Pháp")) {
-                lang_second = "fr";
+            String s = comboBox1.getSelectionModel().getSelectedItem().toString();
+            if (s.equals("Tiếng Anh")) {
+                lang_first = "en";
+            } else if (s.equals("Tiếng Việt")) {
+                lang_first = "vi";
+            } else if (s.equals("Tiếng Trung")) {
+                lang_first = "zh-tw";
+            } else if (s.equals("Tiếng Pháp")) {
+                lang_first = "fr";
             }
         });
 
         comboBox2.setOnAction(e -> {
-            if (comboBox2.getValue().equals("Tiếng Anh")) {
+            String s = comboBox2.getSelectionModel().getSelectedItem().toString();
+            if (s.equals("Tiếng Anh")) {
                 lang_second = "en";
-            } else if (comboBox2.getValue().equals("Tiếng Việt")) {
+            } else if (s.equals("Tiếng Việt")) {
                 lang_second = "vi";
-            } else if (comboBox2.getValue().equals("Tiếng Trung")) {
+            } else if (s.equals("Tiếng Trung")) {
                 lang_second = "zh-tw";
-            } else if (comboBox2.getValue().equals("Tiếng Pháp")) {
+            } else if (s.equals("Tiếng Pháp")) {
                 lang_second = "fr";
             }
         });
