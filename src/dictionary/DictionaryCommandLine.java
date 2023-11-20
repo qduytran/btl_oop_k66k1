@@ -79,7 +79,7 @@ public class DictionaryCommandLine {
                         break;
                     }
                     case "8": {
-                        DM.insertFromFile("WordList.txt");
+                        DM.insertFromFile1("WordList.txt");
                         break;
                     }
                     case "9": {
@@ -104,7 +104,7 @@ public class DictionaryCommandLine {
 
     public void dictionaryBasic() {
         //DM.insertFromCommandLine();
-        DM.insertFromFile("/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/WordList.txt");
-        DM.dictionaryExportToFile("/btl_oop_k66k1/ProjectOOP/ProjectOOP/data/file_export.txt");
+        DM.insertFromFile("WordList.txt");
+        DM.dictionaryExportToFile("file_export.txt");
     }
 }

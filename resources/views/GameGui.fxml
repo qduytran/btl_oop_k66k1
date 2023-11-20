@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="429.0" prefWidth="648.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
+   <children>
+      <AnchorPane fx:id="container" layoutY="-1.0" prefHeight="429.0" prefWidth="648.0" stylesheets="@../style.css">
+         <children>
+            <Button fx:id="multiplechoicebtn" layoutX="135.0" layoutY="379.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="63.0" styleClass="menu-item" text="         ">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8-question-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="guessthewordbtn" layoutX="301.0" layoutY="378.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="66.0" styleClass="menu-item" text="         ">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8-question-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="hangmanbtn" layoutX="463.0" layoutY="382.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="menu-item" text="          ">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8-hang-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
