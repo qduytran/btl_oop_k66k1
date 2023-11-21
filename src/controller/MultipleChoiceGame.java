@@ -1,7 +1,12 @@
 package controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import game.MultipleChoice;
+import game.question.Question;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -18,44 +23,66 @@ public class MultipleChoiceGame extends GameController {
     @FXML
     Label correct, wrong;
     @FXML
-    ImageView correct1, correct2, correct3, correct4, correct5;
+    ImageView correct1, wrong1;
+
+    private MultipleChoice game;
+    private Question currentQuestion;
+    private List<String> currentAnswers;
+
+    private static final int MAX = 33482;
+    private String path = "resources/data/MultipleChoiceData.txt";
+    private List<Question> questionList = new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        selectAbtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Đang xử lý khi chọn A");
-            }
-        });
-        selectBbtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Đang xử lý khi chọn B");
-            }
-        });
-        selectCbtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Đang xử lý khi chọn C");
-            }
-        });
-        selectDbtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Đang xử lý khi chọn D");
-            }
-        });
-        nextquestionbtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Nút này để chuyển sang câu hỏi tiếp theo!");
-            }
-            
-        });
+        game = new MultipleChoice();
+
+        game.insertQuestionFromFile();
+        displayQuestion();
+        selectAbtn.setOnAction(event -> handleAnswer(0));
+        selectBbtn.setOnAction(event -> handleAnswer(1));
+        selectCbtn.setOnAction(event -> handleAnswer(2));
+        selectDbtn.setOnAction(event -> handleAnswer(3));
+        nextquestionbtn.setOnAction(event -> displayQuestion());
+
+        contentQuestion.setWrapText(true);
         contentQuestion.setDisable(true);
-        correct.setVisible(true);
-        wrong.setVisible(true);
-        correct1.setVisible(true);
-        correct2.setVisible(true);
+        correct.setVisible(false);
+        correct1.setVisible(false);
+        wrong.setVisible(false);
+        wrong1.setVisible(false);
+    }
+
+    private void displayQuestion() {
+        if (game != null) {
+            currentQuestion = game.randomQuestion();
+            contentQuestion.setText(currentQuestion.getQuestion());
+            currentAnswers = game.randomAnswers(currentQuestion.getCorrectAnswers());
+
+            // Cập nhật các đáp án cho Button tương ứng ở đây
+            selectAbtn.setText(currentAnswers.get(0));
+            selectBbtn.setText(currentAnswers.get(1));
+            selectCbtn.setText(currentAnswers.get(2));
+            selectDbtn.setText(currentAnswers.get(3));
+        }
+    }
+
+    private void handleAnswer(int selectedAnswerIndex) {
+        if (game != null && currentQuestion != null && currentAnswers != null) {
+            String selectedAnswer = currentAnswers.get(selectedAnswerIndex);
+
+            if (currentQuestion.checkAnswers(selectedAnswer)) {
+                correct.setVisible(true);
+                correct1.setVisible(true);
+                wrong.setVisible(false);
+                wrong1.setVisible(false);
+            } else {
+                correct.setVisible(false);
+                correct1.setVisible(false);
+                wrong.setVisible(true);
+                wrong1.setVisible(true);
+            }
+
+            // Kiểm tra và xử lý kết thúc trò chơi ở đây nếu cần
+        }
     }
 }

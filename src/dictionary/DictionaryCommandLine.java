@@ -1,6 +1,8 @@
 package dictionary;
 
 import java.util.Scanner;
+
+import game.GameManagement;
 import word.*;
 
 public class DictionaryCommandLine {
@@ -75,6 +77,8 @@ public class DictionaryCommandLine {
                         break;
                     }
                     case "7": {
+                        GameManagement game = new GameManagement();
+                        game.printMenu();
                         System.out.println("hihi");
                         break;
                     }

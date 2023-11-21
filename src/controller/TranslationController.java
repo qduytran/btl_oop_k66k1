@@ -28,11 +28,11 @@ import com.google.gson.JsonSyntaxException;
 
 public class TranslationController implements Initializable {
     enum Language {
-        EN("Tiếng Anh", "en"),
-        VI("Tiếng Việt", "vi"),
-        ZH_TW("Tiếng Trung", "zh-tw"),
-        FR("Tiếng Pháp", "fr"),
-        AUTO("Phát hiện ngôn ngữ", "auto");
+        English("Tiếng Anh", "en"),
+        Vietnamese("Tiếng Việt", "vi"),
+        Chinese("Tiếng Trung", "zh-tw"),
+        French("Tiếng Pháp", "fr"),
+        AutoDetect("Phát hiện ngôn ngữ", "auto");
 
         private final String displayName;
         private final String code;
@@ -60,8 +60,8 @@ public class TranslationController implements Initializable {
     @FXML
     private ComboBox<Language> comboBox2;
 
-    String lang_first = "auto";
-    String lang_second = "en";
+    String lang_first;
+    String lang_second;
 
     public String translateText(String input) {
         String translation = "";
