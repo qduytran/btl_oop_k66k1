@@ -33,8 +33,26 @@
                 <children>
                     <Pane prefHeight="57.0" prefWidth="645.0" styleClass="header-translate" stylesheets="@../style.css">
                         <children>
-                     <ComboBox fx:id="comboBox1" layoutX="45.0" layoutY="11.0" prefHeight="35.0" prefWidth="188.0" promptText="Chọn ngôn ngữ" stylesheets="@../style.css" />
-                     <ComboBox fx:id="comboBox2" layoutX="411.0" layoutY="11.0" prefHeight="35.0" prefWidth="188.0" promptText="Chọn ngôn ngữ" stylesheets="@../style.css" />
+                     <ComboBox fx:id="comboBox1" layoutX="39.0" layoutY="11.0" prefHeight="35.0" prefWidth="188.0" promptText="Chọn ngôn ngữ" stylesheets="@../style.css" />
+                     <ComboBox fx:id="comboBox2" layoutX="362.0" layoutY="11.0" prefHeight="35.0" prefWidth="188.0" promptText="Chọn ngôn ngữ" stylesheets="@../style.css" />
+                     <Button fx:id="soundbtn2" layoutX="568.0" layoutY="10.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0">
+                        <graphic>
+                           <ImageView fitHeight="29.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/icons8-sound-64.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
+                     <Button fx:id="soundbtn1" layoutX="245.0" layoutY="10.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="44.0">
+                        <graphic>
+                           <ImageView fitHeight="29.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../icons/icons8-sound-64.png" />
+                              </image>
+                           </ImageView>
+                        </graphic>
+                     </Button>
                         </children>
                     </Pane>
                     <TextArea fx:id="sourceLangField" layoutY="55.0" prefHeight="207.0" prefWidth="323.0" promptText="Type.." styleClass="src-speech-field" stylesheets="@../style.css" wrapText="true" />
