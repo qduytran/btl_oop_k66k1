@@ -2,13 +2,12 @@ package controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.KeyEvent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,6 +16,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ResourceBundle;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -26,14 +27,38 @@ import com.google.gson.JsonSyntaxException;
 
 
 public class TranslationController implements Initializable {
+    enum Language {
+        EN("Tiếng Anh", "en"),
+        VI("Tiếng Việt", "vi"),
+        ZH_TW("Tiếng Trung", "zh-tw"),
+        FR("Tiếng Pháp", "fr"),
+        AUTO("Phát hiện ngôn ngữ", "auto");
+
+        private final String displayName;
+        private final String code;
+
+        Language(String displayName, String code) {
+            this.displayName = displayName;
+            this.code = code;
+        }
+
+        public String getDisplayName() {
+            return displayName;
+        }
+
+        public String getCode() {
+            return code;
+        }
+    }
+
     @FXML
     private TextArea sourceLangField, toLangField;
     @FXML
-    private Button translateBtn;
+    private Button translateBtn, soundbtn1, soundbtn2;
     @FXML
-    private ComboBox<String> comboBox1;
+    private ComboBox<Language> comboBox1;
     @FXML
-    private ComboBox<String> comboBox2;
+    private ComboBox<Language> comboBox2;
 
     String lang_first = "auto";
     String lang_second = "en";
@@ -69,54 +94,56 @@ public class TranslationController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> list = FXCollections.observableArrayList("Tiếng Anh", "Tiếng Việt", "Tiếng Trung", "Phát hiện ngôn ngữ");
+        ObservableList<Language> list = FXCollections.observableArrayList(Language.values());
         comboBox1.setItems(list);
         comboBox2.setItems(list);
 
-        comboBox1.setOnAction(e -> {
-            String s = comboBox1.getSelectionModel().getSelectedItem().toString();
-            if (s.equals("Tiếng Anh")) {
-                lang_first = "en";
-            } else if (s.equals("Tiếng Việt")) {
-                lang_first = "vi";
-            } else if (s.equals("Tiếng Trung")) {
-                lang_first = "zh-tw";
-            } else if (s.equals("Tiếng Pháp")) {
-                lang_first = "fr";
-            }
-        });
+        comboBox1.setOnAction(this::handleComboBox1Action);
+        comboBox2.setOnAction(this::handleComboBox2Action);
 
-        comboBox2.setOnAction(e -> {
-            String s = comboBox2.getSelectionModel().getSelectedItem().toString();
-            if (s.equals("Tiếng Anh")) {
-                lang_second = "en";
-            } else if (s.equals("Tiếng Việt")) {
-                lang_second = "vi";
-            } else if (s.equals("Tiếng Trung")) {
-                lang_second = "zh-tw";
-            } else if (s.equals("Tiếng Pháp")) {
-                lang_second = "fr";
-            }
-        });
+        translateBtn.setOnAction(this::handleTranslateButtonClick);
 
-        translateBtn.setOnAction(e -> {
-            String inputText = sourceLangField.getText();
-            String translation = translateText(inputText);
-            toLangField.setText(translation);
-        });
-
-        sourceLangField.setOnKeyTyped(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (sourceLangField.getText().trim().isEmpty()) 
-                    translateBtn.setDisable(true);
-                else 
-                    translateBtn.setDisable(false);
-            }
+        sourceLangField.textProperty().addListener((observable, oldValue, newValue) -> {
+            translateBtn.setDisable(newValue.trim().isEmpty());
         });
 
         translateBtn.setDisable(true);
         toLangField.setEditable(false);
+
+        soundbtn1.setOnAction(e -> speakText(sourceLangField.getText()));
+        soundbtn2.setOnAction(e -> speakText(toLangField.getText()));
+    }
+    @FXML
+    private void handleComboBox1Action(ActionEvent event) {
+        Language selectedLanguage = comboBox1.getSelectionModel().getSelectedItem();
+        if (selectedLanguage != null) {
+            lang_first = selectedLanguage.getCode();
+        }
     }
 
+    @FXML
+    private void handleComboBox2Action(ActionEvent event) {
+        Language selectedLanguage = comboBox2.getSelectionModel().getSelectedItem();
+        if (selectedLanguage != null) {
+            lang_second = selectedLanguage.getCode();
+        }
+    }
+
+    @FXML
+    private void handleTranslateButtonClick(ActionEvent event) {
+        String inputText = sourceLangField.getText();
+        String translation = translateText(inputText);
+        toLangField.setText(translation);
+    }
+
+    private void speakText(String text) {
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        if (voice != null) {
+            voice.allocate();
+            voice.speak(text);
+        } else {
+            throw new IllegalStateException("Cannot find voice: kevin16");
+        }
+    }
 }

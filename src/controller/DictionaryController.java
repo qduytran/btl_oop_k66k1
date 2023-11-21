@@ -64,7 +64,6 @@ public class DictionaryController implements Initializable {
         tooltip2.setShowDelay(Duration.seconds(0.5));
         tooltip3.setShowDelay(Duration.seconds(0.5));
         tooltip4.setShowDelay(Duration.seconds(0.5));
-        // showComponent("/Views/DictionaryGui.fxml");
 
         closeBtn.setOnMouseClicked(e -> {
             System.exit(0);

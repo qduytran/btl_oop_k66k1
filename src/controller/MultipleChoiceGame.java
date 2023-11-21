@@ -2,7 +2,6 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,9 +14,9 @@ public class MultipleChoiceGame extends GameController {
     @FXML
     TextArea contentQuestion;
     @FXML
-    Button selectAbtn, selectBbtn, selectCbtn, selectDbtn, playAgainbtn;
+    Button selectAbtn, selectBbtn, selectCbtn, selectDbtn, nextquestionbtn;
     @FXML
-    Label win;
+    Label correct, wrong;
     @FXML
     ImageView correct1, correct2, correct3, correct4, correct5;
     @Override
@@ -46,23 +45,17 @@ public class MultipleChoiceGame extends GameController {
                 System.out.println("Đang xử lý khi chọn D");
             }
         });
-        playAgainbtn.setOnAction(new EventHandler<ActionEvent>() {
+        nextquestionbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Nút này để chơi lại từ đầu!");
+                System.out.println("Nút này để chuyển sang câu hỏi tiếp theo!");
             }
             
         });
         contentQuestion.setDisable(true);
-        // selectAbtn.setDisable(true);
-        // selectBbtn.setDisable(true);
-        // selectCbtn.setDisable(true);
-        // selectDbtn.setDisable(true);
-        win.setVisible(false);
+        correct.setVisible(true);
+        wrong.setVisible(true);
         correct1.setVisible(true);
-        correct2.setVisible(false);
-        correct3.setVisible(false);
-        correct4.setVisible(false);
-        correct5.setVisible(false);
+        correct2.setVisible(true);
     }
 }

@@ -72,6 +72,7 @@ public class SearcherController extends DictionaryController {
         cancelBtn.setVisible(false);
         notAvailableAlert.setVisible(false);
     }
+    
     @FXML
     private void handleOnKeyTyped() {
         list = dm.search(searchTerm.getText().trim());
