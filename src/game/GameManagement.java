@@ -68,10 +68,10 @@ public class GameManagement{
             case 0:
                 break;
             case 1:
-                // startGame(new Hangman());
+                 startGame(new Hangman());
                 break;
             case 2:
-                // startGame(new GuessTheWord());
+                 startGame(new GuessTheWord());
                 break;
             case 3:
                 startGame(new MultipleChoice());
