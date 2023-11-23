@@ -16,7 +16,7 @@ public class AdditionController extends DictionaryController {
     @FXML
     private Button addBtn;
     @FXML
-    private Label successAlert;
+    private Label successAlert, failAlert;
 
     private void resetInput() {
         wordTargetInput.setText("");
@@ -28,6 +28,11 @@ public class AdditionController extends DictionaryController {
         dm.setTimeout(() -> successAlert.setVisible(false), 1500);
     }
 
+    private void showFailAlert() {
+        failAlert.setVisible(true);
+        dm.setTimeout(() -> failAlert.setVisible(false), 1500);
+    }
+
     @FXML
     private void handleOnClicked() {
         try {
@@ -36,7 +41,8 @@ public class AdditionController extends DictionaryController {
 
             Word word = new Word(englishWord, meaning);
             if (dictionary.containsKey(word.getWordTarget())) {
-                System.out.println("Add không thành công");
+                showFailAlert();
+
             } else {
                 dictionary.put(word.getWordTarget(), word);
                 showSuccessAlert();
@@ -53,7 +59,7 @@ public class AdditionController extends DictionaryController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         successAlert.setVisible(false);
-
+        failAlert.setVisible(false);
         if (explanationInput.getText().isEmpty() || wordTargetInput.getText().isEmpty())
             addBtn.setDisable(true);
 

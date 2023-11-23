@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -26,7 +25,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 
-public class TranslationController implements Initializable {
+public class TranslationController extends DictionaryController {
     enum Language {
         English("Tiếng Anh", "en"),
         Vietnamese("Tiếng Việt", "vi"),

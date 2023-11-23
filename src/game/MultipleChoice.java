@@ -35,7 +35,8 @@ public class MultipleChoice extends GameManagement implements GameInterface {
 
                 String question = "";
                 for (int i = 1; i < s.length; i++) {
-                    if (answers.equalsIgnoreCase(s[i])) {
+                    String k = s[i].substring(0, s[i].length() - 1);
+                    if (answers.equalsIgnoreCase(s[i]) || answers.equalsIgnoreCase(k)) {
                         question += "___" + " ";
                     } else {
                         question += s[i] + " ";
@@ -107,7 +108,6 @@ public class MultipleChoice extends GameManagement implements GameInterface {
                 break;
             }
         }
-        //input.close();
         playAgain();
     }
 
