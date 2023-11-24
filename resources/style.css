@@ -25,11 +25,12 @@
  -fx-background-color: #66cc66;
 }
 .search-box{
-    -fx-background-color:   #084408;
+    -fx-background-color:   #065d06;
     -fx-background-radius: 30;
     -fx-border-radius: 30;
     -fx-effect: dropshadow(three-pass-box, #ededed, 15, 0, 0, 2) ;
 }
+
 .search-field{
   -fx-background-color: transparent;
   -fx-text-fill: #d1d8e0;
@@ -206,6 +207,14 @@
     -fx-font-size: 14px;
     -fx-text-fill: #009432;
     -fx-background-color:  #ccf7ca;
+     -fx-background-radius: 5;
+     -fx-border-radius: 5;
+}
+
+.fail-alert{
+    -fx-font-size: 14px;
+    -fx-text-fill: #940000;
+    -fx-background-color:  rgb(254, 96, 96);
      -fx-background-radius: 5;
      -fx-border-radius: 5;
 }

@@ -52,6 +52,11 @@
 
 # Cài đặt <a name="installation"></a>
 
-* Cài đặt JDK 17 trở lên tại [đây](https://www.oracle.com/java/technologies/javase/javase17-archive-downloads.html), có thể sử dụng Intellij, Eclipse, Netbean hoặc VSCode để chạy chương trình viết bằng Java.
-* Cài đặt MAVEN tại [đây](https://maven.apache.org/download.cgi?.).
-* Tiến hành sử dụng ứng dụng học Tiếng Anh theo hướng dẫn sử dụng trên.
+* Cài đặt JDK 17 trở lên tại [đây](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html), có thể sử dụng Intellij, Eclipse, Netbean hoặc VSCode để chạy chương trình viết bằng Java.
+* Cài đặt MAVEN framework tại [đây](https://maven.apache.org/download.cgi?.).
+* IntelliJ IDEA Ultimate Edition 2023.2.4
+* Scene Builder 21
+* JavaFX vesion 21
+* CSS
+* FreeTTS 1.2.2 Library
+* gson-Simple 2.8.8 Library

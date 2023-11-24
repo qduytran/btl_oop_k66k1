@@ -1,7 +1,6 @@
 package controller;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -27,9 +26,6 @@ public class MultipleChoiceGame extends GameController {
     private Question currentQuestion;
     private List<String> currentAnswers;
 
-    private static final int MAX = 33482;
-    private String path = "resources/data/MultipleChoiceData.txt";
-    private List<Question> questionList = new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         game = new MultipleChoice();

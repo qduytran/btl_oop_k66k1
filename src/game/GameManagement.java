@@ -44,6 +44,7 @@ public class GameManagement {
       System.out.println("[1] Hangman");
       System.out.println("[2] Guess The Word");
       System.out.println("[3] Multiple Choice");
+      System.out.println("[4] Match Word");
       System.out.println("Your action: ");
    }
 
@@ -51,7 +52,7 @@ public class GameManagement {
       int userInput;
       try {
          userInput = scanner.nextInt();
-         if (userInput < 0 || userInput > 3) {
+         if (userInput < 0 || userInput > 4) {
             throw new InputMismatchException("Invalid action!");
          }
          printGap();
@@ -68,13 +69,16 @@ public class GameManagement {
          case 0:
             break;
          case 1:
-            // startGame(new Hangman());
+            //startGame(new Hangman());
             break;
          case 2:
-            // startGame(new GuessTheWord());
+            startGame(new GuessTheWord());
             break;
          case 3:
             startGame(new MultipleChoice());
+            break;
+         case 4:
+            //startGame(new MatchWord());
             break;
       }
    }
