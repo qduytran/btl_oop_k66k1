@@ -9,9 +9,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import word.Word;
-
-import game.question.Question;
 import game.question.WordGuess;
 
 public class GuessTheWord extends GameManagement implements GameInterface {

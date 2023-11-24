@@ -41,20 +41,20 @@ public class Question {
         this.listAnswers = listAnswers;
     }
 
-    
     public boolean checkAnswers(String answer) {
         if (correctAnswers.equalsIgnoreCase(answer)) {
             return true;
-        } else return false;
+        } else
+            return false;
     }
 
     public void printQuestion(int stt) {
         String s = "Question " + Integer.toString(stt) + ": ";
         s += question + "\n";
         s += "A. " + listAnswers.get(0) + "\n"
-            + "B. " + listAnswers.get(1) + "\n"
-            + "C. " + listAnswers.get(2) + "\n"
-            + "D. " + listAnswers.get(3) + "\n";
+                + "B. " + listAnswers.get(1) + "\n"
+                + "C. " + listAnswers.get(2) + "\n"
+                + "D. " + listAnswers.get(3) + "\n";
         System.out.println(s);
     }
 
