@@ -52,6 +52,12 @@ public class WordGuess extends Word {
         System.out.println("----------------" + wordGuess + "------------");
     }
 
+    public String wordGuess() {
+        String s = super.getWordTarget();
+        String wordGuess = s.substring(0, position) + "_" + s.substring(position + 1, s.length());
+        return wordGuess;
+    }
+
     public void printWord() {
         System.out.println(super.getWordTarget() + "  :\t\t" + super.getWordExplain());
     }

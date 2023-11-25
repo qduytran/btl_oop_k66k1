@@ -60,7 +60,7 @@
             <Image url="@../icons/icons8-wrong-48.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="contentQuestion" layoutX="80.0" layoutY="73.0" prefHeight="200.0" prefWidth="318.0" styleClass="english-word-input" stylesheets="@../style.css" text="Question...">
+      <TextArea fx:id="contentQuestion" layoutX="80.0" layoutY="73.0" prefHeight="200.0" prefWidth="318.0" promptText="Question..." styleClass="english-word-input" stylesheets="@../style.css">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
