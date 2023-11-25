@@ -22,7 +22,7 @@ public class GuessTheWord extends GameManagement implements GameInterface {
         health = 3;
     }
 
-    private void insertFromFile() {
+    public void insertFromFile() {
         try {
             FileReader fr = new FileReader(path);
             BufferedReader bf = new BufferedReader(fr);
@@ -93,7 +93,7 @@ public class GuessTheWord extends GameManagement implements GameInterface {
         System.out.println("------------Health: " + health + "------------" );
     }
 
-    private WordGuess randWord() {
+    public WordGuess randWord() {
         Random rand = new Random();
         int index = rand.nextInt(MAX);
         return dataList.get(index);

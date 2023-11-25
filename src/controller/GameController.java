@@ -31,7 +31,7 @@ public class GameController extends DictionaryController {
         guessthewordbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //showComponent("/views/MultipleChoiceGui.fxml");
+                showComponent("/views/GuessTheWordGui.fxml");
                 System.out.println("Đang ở giao diện chơi game đoán từ");
             }
         });

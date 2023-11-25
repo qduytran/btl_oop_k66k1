@@ -44,7 +44,7 @@ public class GameManagement {
       System.out.println("[1] Hangman");
       System.out.println("[2] Guess The Word");
       System.out.println("[3] Multiple Choice");
-      System.out.println("[4] Match Word");
+      System.out.println("[4] Matching Word");
       System.out.println("Your action: ");
    }
 
@@ -78,7 +78,7 @@ public class GameManagement {
             startGame(new MultipleChoice());
             break;
          case 4:
-            //startGame(new MatchWord());
+            startGame(new MatchingWord());
             break;
       }
    }

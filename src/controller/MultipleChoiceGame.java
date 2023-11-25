@@ -29,7 +29,6 @@ public class MultipleChoiceGame extends GameController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         game = new MultipleChoice();
-
         game.insertQuestionFromFile();
         displayQuestion();
         selectAbtn.setOnAction(event -> handleAnswer(0));
@@ -39,7 +38,7 @@ public class MultipleChoiceGame extends GameController {
         nextquestionbtn.setOnAction(event -> displayQuestion());
 
         contentQuestion.setWrapText(true);
-        contentQuestion.setDisable(true);
+        contentQuestion.setEditable(false);
         correct.setVisible(false);
         correct1.setVisible(false);
         wrong.setVisible(false);
