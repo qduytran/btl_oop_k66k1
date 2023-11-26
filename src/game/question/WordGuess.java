@@ -4,7 +4,7 @@ import java.util.Random;
 
 import word.Word;
 
-public class WordGuess extends Word{
+public class WordGuess extends Word {
     private int position;
 
     public WordGuess() {
@@ -24,7 +24,7 @@ public class WordGuess extends Word{
     public void setPosition(int position) {
         this.position = position;
     }
-    
+
     public void randomPosition() {
         String word = super.getWordTarget();
         int n = word.length();
@@ -39,12 +39,12 @@ public class WordGuess extends Word{
     public boolean checkAnswers(char answer) {
         char correctAnswers = Character.toUpperCase(super.getWordTarget().charAt(position));
         answer = Character.toUpperCase(answer);
-        //System.out.println(answer + "    " + correctAnswers);
+        // System.out.println(answer + " " + correctAnswers);
         if (answer == correctAnswers) {
             return true;
         }
         return false;
-    } 
+    }
 
     public void printWordGuess() {
         String s = super.getWordTarget();

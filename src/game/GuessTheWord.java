@@ -11,18 +11,16 @@ import java.util.Scanner;
 
 import game.question.WordGuess;
 
-public class GuessTheWord extends GameManagement implements GameInterface {
-
-    private static final int MAX = 33482;
-    private String path = "resources/data/WordList.txt";
+public class GuessTheWord extends GameInterface {
     private List<WordGuess> dataList = new ArrayList<>();
 
     public GuessTheWord() {
         point = 0;
         health = 3;
+        path = "resources/data/WordList.txt";
     }
 
-    private void insertFromFile() {
+    public void insertFromFile() {
         try {
             FileReader fr = new FileReader(path);
             BufferedReader bf = new BufferedReader(fr);
@@ -57,7 +55,7 @@ public class GuessTheWord extends GameManagement implements GameInterface {
                 System.out.print(" Nhập lại chữ cái bạn đoán: ");
             }
             if (wordGuess.checkAnswers(s.charAt(0)) == true) {
-                point += 10;
+                point += 1;
                 System.out.println("--------------CORRECT--------------" );
             } else {
                 health -= 1;
@@ -65,51 +63,18 @@ public class GuessTheWord extends GameManagement implements GameInterface {
             }
             printInfo();
             wordGuess.printWord();
-            // this.printWord();
             System.out.println("\n\n\n\n");
             if (isEndGame() == true) {
-                if (health == 0) {
-                    System.out.println("--------------YOU LOSE------------" );
-                } else {
-                     System.out.println("--------------YOU WIN------------" );
-                }
+                printEndGame();
                 break;
             }
         }
-        playAgain();
         System.out.println("\n\n\n\n");
-    }
-
-    private boolean isEndGame() {
-        if (point == 10 || health == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private void printInfo() {
-        System.out.println("------------Point:  " + point + "------------" );
-        System.out.println("------------Health: " + health + "------------" );
     }
 
     private WordGuess randWord() {
         Random rand = new Random();
         int index = rand.nextInt(MAX);
         return dataList.get(index);
-    }
-
-    private void playAgain() {
-        boolean check = true;
-        Scanner input = new Scanner(System.in);
-        while (check) {
-            System.out.println("Do you want to play again? [Y/n]\t");
-            char userInput = input.next().charAt(0);
-            if (userInput == 'Y' || userInput == 'y') {
-                point = 0;
-                health = 3;
-                start();
-            } else check = false;
-        }
     }
 }
