@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="484.0" layoutY="199.0" text="Hang Man">
+            <Label layoutX="455.0" layoutY="199.0" text="Matching Word ">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
