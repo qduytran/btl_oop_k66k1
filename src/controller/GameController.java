@@ -39,8 +39,8 @@ public class GameController extends DictionaryController {
         hangmanbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                //showComponent("/views/MultipleChoiceGui.fxml");
-                System.out.println("Đang ở giao diện chơi game treo cổ");
+                showComponent("/views/MatchingWordGui.fxml");
+                System.out.println("Đang ở giao diện chơi game nối từ");
             }
         });
     }

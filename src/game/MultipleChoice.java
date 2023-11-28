@@ -22,6 +22,29 @@ public class MultipleChoice extends GameManagement implements GameInterface {
         health = 3;
     }
 
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void increasePoint() {
+        point++;
+    }
+
+    public void decreaseHealth() {
+        health--;
+    }
     public void insertQuestionFromFile() {
         try {
             FileReader fr = new FileReader(path);

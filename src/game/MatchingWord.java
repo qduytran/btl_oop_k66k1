@@ -23,6 +23,30 @@ public class MatchingWord extends GameManagement implements GameInterface {
         health = 3;
     }
 
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void increasePoint() {
+        point++;
+    }
+
+    public void decreaseHealth() {
+        health--;
+    }
+
     public void insertFromFile() {
         try {
             BufferedReader bf = new BufferedReader(new FileReader(path));
@@ -81,7 +105,7 @@ public class MatchingWord extends GameManagement implements GameInterface {
     }
 
 
-    private boolean checkAnswers(String s) {
+    public boolean checkAnswers(String s) {
         if (s.charAt(0) != characterKey) {
             System.out.println("----------------Từ này không bắt đầu bằng chữ ----------------" + characterKey);
             health -= 1;
@@ -105,7 +129,7 @@ public class MatchingWord extends GameManagement implements GameInterface {
         return false;
     }
 
-    private boolean isEndGame() {
+    public boolean isEndGame() {
         if (point == 10 || health == 0) {
             return true;
         }
@@ -115,7 +139,7 @@ public class MatchingWord extends GameManagement implements GameInterface {
     /**
      * random 1 từ bắt đầu bằng chữ cái.
      */
-    private String randomWord() {
+    public String randomWord() {
         if (characterKey == null || Character.isLetter(characterKey) == false) {
             return null;
         }
