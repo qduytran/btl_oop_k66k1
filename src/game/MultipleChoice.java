@@ -12,14 +12,13 @@ import java.util.Scanner;
 
 import game.question.Question;
 
-public class MultipleChoice extends GameManagement implements GameInterface {
-    private static final int MAX = 33482;
-    private String path = "resources/data/MultipleChoiceData.txt";
+public class MultipleChoice extends GameInterface {
     private List<Question> questionList = new ArrayList<>();
 
     public MultipleChoice() {
         point = 0;
         health = 3;
+        path = "resources/data/MultipleChoiceData.txt";
     }
 
     public int getPoint() {
@@ -45,7 +44,7 @@ public class MultipleChoice extends GameManagement implements GameInterface {
     public void decreaseHealth() {
         health--;
     }
-    public void insertQuestionFromFile() {
+    public void insertFromFile() {
         try {
             FileReader fr = new FileReader(path);
             BufferedReader bf = new BufferedReader(fr);
@@ -95,13 +94,8 @@ public class MultipleChoice extends GameManagement implements GameInterface {
         return list;
     }
 
-    private void printInfo() {
-        System.out.println("----------Your point:  " + this.point + " --------");
-        System.out.println("----------Your health: " + this.health + " --------" + "\n\n");
-    }
-
     public void start() {
-        insertQuestionFromFile();
+        insertFromFile();
         Scanner input = new Scanner(System.in);
         int stt = 1;
         System.out.println("-------------NEW GAME ------------");
@@ -124,27 +118,9 @@ public class MultipleChoice extends GameManagement implements GameInterface {
             }
             printInfo();
             if (isEndGame() == true) {
-                if (point == 10)
-                    System.out.println("--------------YOU WIN !---------");
-                else
-                    System.out.println("--------------YOU LOSE !---------");
+                printEndGame();
                 break;
             }
-        }
-        playAgain();
-    }
-
-    private void playAgain() {
-        boolean check = true;
-        Scanner input = new Scanner(System.in);
-        while (check) {
-            System.out.println("Do you want to play again? [Y/n]\t");
-            char userInput = input.next().charAt(0);
-            if (userInput == 'Y' || userInput == 'y') {
-                point = 0;
-                health = 3;
-                start();
-            } else check = false;
         }
     }
 
@@ -155,7 +131,4 @@ public class MultipleChoice extends GameManagement implements GameInterface {
         return questionList.get(index);
     }
 
-    private boolean isEndGame() {
-        return point == 10 || health == 0;
-    }
 }

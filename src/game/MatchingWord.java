@@ -9,18 +9,16 @@ import java.util.Hashtable;
 import java.util.Random;
 import java.util.Scanner;
 
-public class MatchingWord extends GameManagement implements GameInterface {
-    private static final int MAX = 33482;
-    private String path = "resources/data/HangmanData.txt";
+public class MatchingWord extends GameInterface {
     private ArrayList<String> charStartsList;
     private Hashtable<Character, ArrayList<String>> charStarts = new Hashtable<>();
     private Hashtable<String, Integer> answersList = new Hashtable<>();
-    private int point;
     private Character characterKey = 'b';
 
     public MatchingWord() {
         point = 0;
         health = 3;
+        path = "resources/data/HangmanData.txt";
     }
 
     public int getPoint() {
@@ -76,12 +74,12 @@ public class MatchingWord extends GameManagement implements GameInterface {
     public void start() {
         this.insertFromFile();
         Scanner input = new Scanner(System.in);
-        System.out.println("------------------Matching Word --------------");
-        System.out.println("------------------  NEW GAME --------------");
+        System.out.println("------------------NEW GAME --------------");
 
         String wordStart = this.randomWord();
         characterKey = wordStart.charAt(wordStart.length() - 1);
         System.out.printf("%s\n", wordStart);
+
         answersList.put(wordStart, 1);
         while (true) {
             System.out.print("\t\t");
@@ -96,6 +94,7 @@ public class MatchingWord extends GameManagement implements GameInterface {
                     System.out.println("--------------YOU WIN !---------");
                 else
                     System.out.println("--------------YOU LOSE !---------");
+                printEndGame();
                 break;
             }
             String wordContinue = this.randomWord();
@@ -126,13 +125,6 @@ public class MatchingWord extends GameManagement implements GameInterface {
         }
         System.out.println("----------------Không có trong từ điển----------------");
         health -= 1;
-        return false;
-    }
-
-    public boolean isEndGame() {
-        if (point == 10 || health == 0) {
-            return true;
-        }
         return false;
     }
 
