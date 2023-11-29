@@ -27,6 +27,7 @@ public class GuessTheWordController extends GameController {
 
     private GuessTheWord game;
     private WordGuess wordGuess;
+    private int point = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -39,14 +40,19 @@ public class GuessTheWordController extends GameController {
         displayWord();
         setupWordDisplay();
         setupAnswerField();
-        nextwordbtn.setOnAction(event -> displayWord());
+        nextwordbtn.setOnAction(event -> {
+            displayWord();
+            answer.setEditable(true);
+        });
     }
 
     @FXML
     private void displayWord() {
         if (game != null) {
             wordGuess = game.randWord();
-            worddisplay.setText(wordGuess.wordGuess());
+            worddisplay.setText("Điền ô trống: "
+                    + wordGuess.wordGuess()
+                    + "\nNghĩa : " + wordGuess.getWordExplain());
         }
     }
 
@@ -72,13 +78,17 @@ public class GuessTheWordController extends GameController {
                 wordcorrect1.setVisible(true);
                 wordwrong.setVisible(false);
                 wordwrong1.setVisible(false);
-                worddisplay.setText("Từ đúng: " + wordGuess.getWordTarget() + "\nNghĩa Tiếng Việt: " + wordGuess.getWordExplain());
+                point++;
             } else {
                 wordcorrect.setVisible(false);
                 wordcorrect1.setVisible(false);
                 wordwrong.setVisible(true);
                 wordwrong1.setVisible(true);
+                worddisplay.setText(
+                        "Từ đúng: " + wordGuess.getWordTarget() + "\nNghĩa Tiếng Việt: " + wordGuess.getWordExplain());
             }
+            answer.clear();
+            answer.setEditable(false);
         }
     }
 }

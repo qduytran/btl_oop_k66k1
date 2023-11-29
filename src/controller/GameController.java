@@ -55,6 +55,7 @@ public class GameController extends DictionaryController {
             AnchorPane component = FXMLLoader.load(getClass().getResource(path));
             setNode(component);
         } catch (IOException e) {
+            System.out.println("lỗi");
             e.printStackTrace();
         }
     }

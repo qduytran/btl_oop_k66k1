@@ -13,7 +13,7 @@ public class MatchingWord extends GameInterface {
     private ArrayList<String> charStartsList;
     private Hashtable<Character, ArrayList<String>> charStarts = new Hashtable<>();
     private Hashtable<String, Integer> answersList = new Hashtable<>();
-    private Character characterKey = 'b';
+    public Character characterKey = 'b';
 
     public MatchingWord() {
         point = 0;
