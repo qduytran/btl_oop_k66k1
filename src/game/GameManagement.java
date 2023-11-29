@@ -69,7 +69,7 @@ public class GameManagement {
          case 0:
             break;
          case 1:
-            //startGame(new Hangman());
+            startGame(new HangMan());
             break;
          case 2:
             startGame(new GuessTheWord());

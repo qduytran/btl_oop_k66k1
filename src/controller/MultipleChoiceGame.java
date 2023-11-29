@@ -29,7 +29,7 @@ public class MultipleChoiceGame extends GameController {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         game = new MultipleChoice();
-        game.insertQuestionFromFile();
+        game.insertFromFile();
         displayQuestion();
         replayBtn.setDisable(true);
         selectAbtn.setOnAction(event -> handleAnswer(0));
