@@ -50,6 +50,20 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
+            <Button fx:id="matchingwordbtn" layoutX="327.0" layoutY="68.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0" styleClass="menu-item" text="          ">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/icons8-list-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="276.0" layoutY="110.0" text="Matching Word ">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

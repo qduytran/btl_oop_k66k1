@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class GameController extends DictionaryController {
     @FXML
-    Button multiplechoicebtn, guessthewordbtn, hangmanbtn;
+    Button multiplechoicebtn, guessthewordbtn, hangmanbtn, matchingwordbtn;
     @FXML
     AnchorPane container;
 
@@ -37,6 +37,14 @@ public class GameController extends DictionaryController {
         });
 
         hangmanbtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                showComponent("/views/HangManGui.fxml");
+                System.out.println("Đang ở giao diện chơi game treo cổ");
+            }
+        });
+    
+        matchingwordbtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 showComponent("/views/MatchingWordGui.fxml");

@@ -43,6 +43,33 @@ public class HangmanWord {
         System.out.println("\n");
     }
 
+    public String printInfoGraphic() {
+        StringBuilder info = new StringBuilder();
+        int len = word.length();
+    
+        for (int i = 0; i < len; i++) {
+            if (list[i] == true) {
+                info.append(word.charAt(i));
+            } else {
+                info.append("_");
+            }
+        }
+        
+        info.append("\n-------------Gợi ý chữ cái -------------\n");
+        
+        for (int i = 0; i < MAX_CHAR; i++) {
+            if (list1[i] == false) {
+                info.append(listChar.get(i)).append(" ");
+            } else {
+                info.append("* ");
+            }
+        }
+        info.append("\n");
+        
+        return info.toString();
+    }
+    
+
     public void randChar() {
         int k = MAX_CHAR - word.length();
         Random rand = new Random();
