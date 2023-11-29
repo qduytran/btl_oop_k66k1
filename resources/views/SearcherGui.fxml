@@ -48,6 +48,16 @@
                   </Button>
                </children>
             </Pane>
+            <ImageView fitHeight="91.0" fitWidth="187.0" layoutX="599.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/isometric-translator-sign-on-tablet-with-web-sign-text.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="91.0" fitWidth="82.0" layoutX="91.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/techny-translator-sign-on-phone-with-different-isons-text.png" />
+               </image>
+            </ImageView>
             </children>
         </Pane>
         <AnchorPane layoutY="92.0" prefHeight="415.0" prefWidth="769.0" styleClass="main-searcher" stylesheets="@../style.css">

@@ -70,4 +70,14 @@
             </Pane>
         </children>
     </AnchorPane>
+   <ImageView fitHeight="91.0" fitWidth="82.0" layoutX="197.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../icons/techny-translator-sign-on-phone-with-different-isons-text.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="91.0" fitWidth="187.0" layoutX="496.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../icons/isometric-translator-sign-on-tablet-with-web-sign-text.png" />
+      </image>
+   </ImageView>
 </AnchorPane>
