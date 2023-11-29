@@ -7,18 +7,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HangManController">
    <children>
-      <TextArea fx:id="guessWord" layoutX="60.0" layoutY="143.0" prefHeight="63.0" prefWidth="312.0" />
-      <TextField fx:id="guessChar" layoutX="141.0" layoutY="270.0" promptText="Nhập chữ cái bạn đoán..." />
-      <Label fx:id="score" layoutX="396.0" layoutY="45.0" text="Score: " />
-      <Label fx:id="health" layoutX="396.0" layoutY="85.0" text="Health:" />
+      <TextArea fx:id="guessWord" layoutX="60.0" layoutY="143.0" prefHeight="176.0" prefWidth="320.0">
+         <font>
+            <Font size="19.0" />
+         </font></TextArea>
+      <TextField fx:id="guessChar" layoutX="141.0" layoutY="332.0" promptText="Nhập chữ cái bạn đoán..." />
+      <Label fx:id="score" layoutX="396.0" layoutY="45.0" text="Score: ">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label fx:id="health" layoutX="396.0" layoutY="85.0" text="Health:">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
       <Button fx:id="replaybtn" layoutX="432.0" layoutY="296.0" mnemonicParsing="false" text="Replay" />
-      <Label layoutX="72.0" layoutY="116.0" text="Từ cần đoán " />
-      <Label fx:id="noround" layoutX="432.0" layoutY="233.0" text="Hết lượt đoán!" />
-      <Label fx:id="correct" layoutX="439.0" layoutY="134.0" text="Đoán đúng!" />
-      <Label fx:id="incorrect" layoutX="439.0" layoutY="178.0" text="Đoán sai!" />
+      <Label layoutX="79.0" layoutY="106.0" text="Từ cần đoán ">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+      <Label fx:id="noround" layoutX="432.0" layoutY="233.0" text="Hết lượt đoán!">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="correct" layoutX="439.0" layoutY="134.0" text="Đoán đúng!">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="incorrect" layoutX="439.0" layoutY="178.0" text="Đoán sai!">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
       <Label layoutX="113.0" layoutY="37.0" text="Hang Man ">
          <font>
             <Font name="System Bold" size="26.0" />

@@ -47,7 +47,7 @@
 * Bạn chạy đồ họa bằng MAVEN --> Dictionary --> Plugins --> javafx --> run (chạy qua Dictionary Application).
 * Bạn chạy bản command line bằng MainCommandLine.java (run main).
 <p align="center">
-<img width="640" height="480" src="">
+<img width="640" height="480" src="resources/image/match.png">
 </p>
 
 # Cài đặt <a name="installation"></a>
