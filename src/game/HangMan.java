@@ -126,11 +126,6 @@ public class HangMan extends GameInterface {
 
     public String randWord() {
         int n = list.size();
-        // if (n <= 0) {
-        // // Xử lý khi danh sách rỗng hoặc không có phần tử nào
-        // return null; // Hoặc giá trị mặc định phù hợp
-        // }
-
         Random rand = new Random();
         int index = rand.nextInt(n);
         return list.get(index);

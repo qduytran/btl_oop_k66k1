@@ -19,6 +19,7 @@ import dictionary.Dictionary;
 import dictionary.DictionaryManagement;
 
 public class DictionaryController implements Initializable {
+    protected int point_Max = 0;
     protected static Dictionary dictionary;
     protected static DictionaryManagement dm = new DictionaryManagement();
     static {

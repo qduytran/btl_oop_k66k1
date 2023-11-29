@@ -55,7 +55,7 @@ public class HangmanWord {
             }
         }
         
-        info.append("\n-------------Gợi ý chữ cái -------------\n");
+        info.append("\nGợi ý chữ cái\n");
         
         for (int i = 0; i < MAX_CHAR; i++) {
             if (list1[i] == false) {
