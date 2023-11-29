@@ -12,7 +12,26 @@ import java.util.Scanner;
 import game.question.HangmanWord;
 
 public class HangMan extends GameInterface {
-    private List<String> list = new ArrayList<>();
+    private static List<String> list = new ArrayList<>();
+    static {
+        try {
+            FileReader fr = new FileReader("resources/data/HangmanData.txt");
+            BufferedReader bf = new BufferedReader(fr);
+            String line;
+
+            while ((line = bf.readLine()) != null) {
+                list.add(line);
+            }
+            bf.close();
+            fr.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("không tìm thấy file");
+        } catch (IOException e) {
+            System.out.println("Lỗi đọc file");
+        } catch (Exception e) {
+            System.out.println("Lỗi khác với file");
+        }
+    }
 
     public HangMan() {
         point = 0;
@@ -40,6 +59,30 @@ public class HangMan extends GameInterface {
         }
     }
 
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void increasePoint() {
+        point++;
+    }
+
+    public void decreaseHealth() {
+        health--;
+    }
+
     @Override
     public void start() {
         insertFromFile();
@@ -48,17 +91,19 @@ public class HangMan extends GameInterface {
         int index = 0;
         while (true) {
             HangmanWord x = new HangmanWord(this.randWord());
-            index ++;
+            index++;
             int health_word = 3;
             while (x.completedWord() == false) {
                 System.out.print("\n---Word " + index + " :\t");
                 x.printInfo();
                 System.out.print("Nhập chữ cái bạn đoán: ");
                 String s = input.nextLine();
-                char answers = s.charAt(0);
+                char answers = 'a';
+                if (s.length() != 0)
+                    answers = s.charAt(0);
                 if (x.checkAnswers(answers) == false) {
                     health_word--;
-                } 
+                }
                 if (health_word == 0) {
                     System.out.println("Hết lượt đoán. Đáp án : " + x.word);
                     printInfo();
@@ -78,11 +123,16 @@ public class HangMan extends GameInterface {
             }
         }
     }
-    
-    private String randWord() {
+
+    public String randWord() {
         int n = list.size();
+        // if (n <= 0) {
+        // // Xử lý khi danh sách rỗng hoặc không có phần tử nào
+        // return null; // Hoặc giá trị mặc định phù hợp
+        // }
+
         Random rand = new Random();
-        int index = rand.nextInt(n - 1);
+        int index = rand.nextInt(n);
         return list.get(index);
     }
 
