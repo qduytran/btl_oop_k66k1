@@ -33,7 +33,7 @@
 * Có 4 game chơi để luyện việc học từ vựng Tiếng Anh:
 > Game trắc nghiệm yêu cầu bạn chọn đáp án được hiển thị phía dưới câu hỏi, nếu đúng/sai giao diện sẽ hiển thị thông báo. Nếu bạn trả lời đúng 5 câu mà chưa hết mạng thì chiến thắng game. Có 3 mạng, nếu còn 0 mạng thì coi như người chơi thua cuộc.
 
-> Game đoán từ yêu cầu bạn nhập vào chữ cái còn thiếu vào từ tiếng anh, khi đã biết nghĩa tiếng việt. Có tối đa 3 mạng cho 3 lần sai, trả lời đúng 5 câu mà chưa hết mạng thì chiến thắng game. Hết 3 mạng thì người hơi sẽ thua cuộc.
+> Game đoán từ yêu cầu bạn nhập vào chữ cái còn thiếu vào từ tiếng anh, khi đã biết nghĩa tiếng việt. Có tối đa 3 mạng cho 3 lần sai, trả lời đúng 5 câu mà chưa hết mạng thì chiến thắng game. Hết 3 mạng thì người chơi sẽ thua cuộc.
 
 > Game nối từ yêu cầu bạn nhập vào các từ có chữ cái đầu là chữ cái cuối của từ phía trước nó. Game này tính điểm cao nhất.
 
