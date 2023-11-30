@@ -30,8 +30,11 @@
 * Một tính năng nữa của ứng dụng đó là phát âm từ vựng. Ở mỗi phần giải nghĩa của từ tiếng Anh, có giọng đọc là Anh-Anh (kelvin).
 * Người sử dụng có thể tra cứu từ vựng trực tiếp từ dữ liệu của ứng dụng hoặc có thể sử dụng Google API để dịch từ hoặc câu như ứng dụng Google Translate.
 * Ở phần dịch Google API, ở mỗi ô văn bản cũng đều có chức năng phát âm, lưu ý chức năng này chỉ phát âm được các từ La-tinh nói chung.
-* Có 3 game chơi để luyện việc học từ vựng Tiếng Anh: 
-* Game trắc nghiệm yêu cầu bạn chọn đáp án được hiển thị phía dưới câu hỏi, nếu đúng/sai giao diện sẽ hiển thị thông báo. Bạn có quyền chuyển câu hỏi bất kỳ lúc nào.
+* Có 4 game chơi để luyện việc học từ vựng Tiếng Anh:
+> Game trắc nghiệm yêu cầu bạn chọn đáp án được hiển thị phía dưới câu hỏi, nếu đúng/sai giao diện sẽ hiển thị thông báo. Nếu bạn trả lời đúng 5 câu mà chưa hết mạng thì chiến thắng game. Có 3 mạng, nếu còn 0 mạng thì coi như người chơi thua cuộc.
+> Game đoán từ yêu cầu bạn nhập vào chữ cái còn thiếu vào từ tiếng anh, khi đã biết nghĩa tiếng việt. Game này chưa có tính năng cộng điểm.
+> Game nối từ yêu cầu bạn nhập vào các từ có chữ cái đầu là chữ cái cuối của từ phía trước nó. Game này tính điểm cao nhất.
+> Game hang man yêu cầu người chơi nhập vào chữ cái còn thiếu dựa trên các từ gợi ý phía trước. Có tối đa 3 mạng, nếu hết mạng coi như bạn đoán sai từ.
 
 <p align="center">
 <img width="640" height="480" src="resources/image/translation.png">

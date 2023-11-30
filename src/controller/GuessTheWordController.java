@@ -19,11 +19,11 @@ public class GuessTheWordController extends GameController {
     @FXML
     TextField answer;
     @FXML
-    Label wordcorrect, wordwrong;
+    Label wordcorrect, wordwrong, healthText, scoreText;
     @FXML
     ImageView wordcorrect1, wordwrong1;
     @FXML
-    Button nextwordbtn;
+    Button nextwordbtn, replayBtn;
 
     private GuessTheWord game;
     private WordGuess wordGuess;
@@ -33,6 +33,7 @@ public class GuessTheWordController extends GameController {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         game = new GuessTheWord();
         game.insertFromFile();
+        replayBtn.setDisable(false);
         wordcorrect.setVisible(false);
         wordcorrect1.setVisible(false);
         wordwrong.setVisible(false);
@@ -40,10 +41,22 @@ public class GuessTheWordController extends GameController {
         displayWord();
         setupWordDisplay();
         setupAnswerField();
+        replayBtn.setOnAction(event -> handleReplay());
         nextwordbtn.setOnAction(event -> {
             displayWord();
             answer.setEditable(true);
         });
+
+        healthText.setText("Health: " + game.getHealth());
+        scoreText.setText("Score: " + game.getPoint());
+    }
+
+    private void handleReplay() {
+        nextwordbtn.setDisable(false);
+        replayBtn.setDisable(true);
+        game.setPoint(0);
+        game.setHealth(3);
+        displayWord();
     }
 
     @FXML
@@ -78,14 +91,30 @@ public class GuessTheWordController extends GameController {
                 wordcorrect1.setVisible(true);
                 wordwrong.setVisible(false);
                 wordwrong1.setVisible(false);
-                point++;
+                game.increasePoint();
+                healthText.setText("Health: " + game.getHealth());
+                scoreText.setText("Score: " + game.getPoint());
             } else {
                 wordcorrect.setVisible(false);
                 wordcorrect1.setVisible(false);
                 wordwrong.setVisible(true);
                 wordwrong1.setVisible(true);
+                game.decreaseHealth();
+                healthText.setText("Health: " + game.getHealth());
+                scoreText.setText("Score: " + game.getPoint());
                 worddisplay.setText(
                         "Từ đúng: " + wordGuess.getWordTarget() + "\nNghĩa Tiếng Việt: " + wordGuess.getWordExplain());
+            }
+
+            if (game.getHealth() == 0) {
+                replayBtn.setDisable(false);
+                nextwordbtn.setDisable(true);
+                worddisplay.setText("Your score: " + game.getPoint() + "\nYou lose!");
+            }
+            if (game.getPoint() == 5) {
+                replayBtn.setDisable(false);
+                nextwordbtn.setDisable(true);
+                worddisplay.setText("Your score: " + game.getPoint() + "\nYou win!");
             }
             answer.clear();
             answer.setEditable(false);

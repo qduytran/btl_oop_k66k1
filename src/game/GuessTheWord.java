@@ -20,6 +20,30 @@ public class GuessTheWord extends GameInterface {
         path = "resources/data/WordList.txt";
     }
 
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void increasePoint() {
+        point++;
+    }
+
+    public void decreaseHealth() {
+        health--;
+    }
+    
     public void insertFromFile() {
         try {
             FileReader fr = new FileReader(path);
