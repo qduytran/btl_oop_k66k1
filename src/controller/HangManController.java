@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 
 public class HangManController extends GameController {
@@ -21,6 +22,8 @@ public class HangManController extends GameController {
     TextField guessChar;
     @FXML
     Label score, health, correct, incorrect, noround;
+    @FXML
+    ImageView correctimg, incorrectimg;
 
     private HangMan game = new HangMan();
     HangmanWord word = new HangmanWord(game.randWord());
@@ -34,7 +37,9 @@ public class HangManController extends GameController {
         replaybtn.setOnAction(e -> handleReplay());
 
         correct.setVisible(false);
+        correctimg.setVisible(false);
         incorrect.setVisible(false);
+        incorrectimg.setVisible(false);
         noround.setVisible(false);
         health.setText("Health: " + game.getHealth());
         score.setText("Score: " + game.getPoint());
@@ -58,10 +63,14 @@ public class HangManController extends GameController {
         replaybtn.setDisable(true);
         game.setPoint(0);
         game.setHealth(3);
-        game.randWord();
+        word = new HangmanWord(game.randWord()); // Tạo từ mới
         displayGuessWord();
         health.setText("Health: " + game.getHealth());
         score.setText("Score: " + game.getPoint());
+        incorrect.setVisible(false);
+        correct.setVisible(false);
+        incorrectimg.setVisible(false);
+        correctimg.setVisible(false);
     }
 
     private void handleAnswer() {
@@ -71,21 +80,37 @@ public class HangManController extends GameController {
             game.decreaseHealth();
             correct.setVisible(false);
             incorrect.setVisible(true);
+            correctimg.setVisible(false);
+            incorrectimg.setVisible(true);
+            guessChar.clear();
         } else {
             incorrect.setVisible(false);
             correct.setVisible(true);
+            incorrectimg.setVisible(false);
+            correctimg.setVisible(true);
             guessWord.setText(word.printInfoGraphic());
+            game.increasePoint();
+            guessChar.clear();
         }
         if (game.getHealth() == 0) {
             guessWord.setText("Hết lượt đoán!" + "\nTừ đúng: " + word.word);
             replaybtn.setDisable(false);
+            correct.setVisible(false);
+            incorrect.setVisible(false);
+            correctimg.setVisible(false);
+            incorrectimg.setVisible(false);
+            noround.setVisible(true);
+            guessChar.clear();
         }
         if (word.completedWord() == true) {
             guessWord.setText("Đoán đúng từ!");
-            game.increasePoint();
+            // game.increasePoint();
             incorrect.setVisible(false);
             correct.setVisible(true);
+            incorrectimg.setVisible(false);
+            correctimg.setVisible(true);
             replaybtn.setDisable(false);
+            guessChar.clear();
         }
         score.setText("Point: " + game.getPoint());
         health.setText("Health: " + game.getHealth());
@@ -99,7 +124,7 @@ public class HangManController extends GameController {
 
     @FXML
     private void displayGuessWord() {
-        if (game != null)
+        if (game != null && word != null)
             guessWord.setText(word.printInfoGraphic());
     }
 }

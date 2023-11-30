@@ -51,5 +51,16 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </TextArea>
+      <Label fx:id="healthText" layoutX="527.0" layoutY="124.0" prefHeight="28.0" prefWidth="95.0" stylesheets="@../style.css" text="Label">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="scoreText" layoutX="527.0" layoutY="83.0" prefHeight="28.0" prefWidth="86.0" stylesheets="@../style.css" text="Label">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="replayBtn" layoutX="510.0" layoutY="283.0" mnemonicParsing="false" styleClass="add-button" stylesheets="@../style.css" text="Replay" />
    </children>
 </AnchorPane>

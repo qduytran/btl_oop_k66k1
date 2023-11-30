@@ -20,27 +20,27 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="selectAbtn" layoutX="208.0" layoutY="285.0" mnemonicParsing="false" text="A">
+      <Button fx:id="selectAbtn" layoutX="208.0" layoutY="285.0" mnemonicParsing="false" styleClass="trans-button" stylesheets="@../style.css" text="A">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="selectCbtn" layoutX="208.0" layoutY="366.0" mnemonicParsing="false" text="C">
+      <Button fx:id="selectCbtn" layoutX="208.0" layoutY="366.0" mnemonicParsing="false" styleClass="trans-button" stylesheets="@../style.css" text="C">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="selectBbtn" layoutX="208.0" layoutY="324.0" mnemonicParsing="false" text="B">
+      <Button fx:id="selectBbtn" layoutX="208.0" layoutY="324.0" mnemonicParsing="false" styleClass="trans-button" stylesheets="@../style.css" text="B">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="selectDbtn" layoutX="207.0" layoutY="409.0" mnemonicParsing="false" text="D">
+      <Button fx:id="selectDbtn" layoutX="207.0" layoutY="409.0" mnemonicParsing="false" styleClass="trans-button" stylesheets="@../style.css" text="D">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="nextquestionbtn" layoutX="580.0" layoutY="186.0" mnemonicParsing="false" text="Next Question" textFill="#087629">
+      <Button fx:id="nextquestionbtn" layoutX="580.0" layoutY="186.0" mnemonicParsing="false" styleClass="decrement-button" text="Next Question" textFill="#087629">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -67,6 +67,6 @@
       </TextArea>
       <Label fx:id="scoreText" layoutX="488.0" layoutY="47.0" prefHeight="37.0" prefWidth="102.0" stylesheets="@../style.css" />
       <Label fx:id="healthText" layoutX="488.0" layoutY="100.0" prefHeight="38.0" prefWidth="102.0" stylesheets="@../style.css" />
-      <Button fx:id="replayBtn" layoutX="528.0" layoutY="247.0" mnemonicParsing="false" text="Replay" />
+      <Button fx:id="replayBtn" layoutX="528.0" layoutY="247.0" mnemonicParsing="false" styleClass="add-button" text="Replay" />
    </children>
 </AnchorPane>
