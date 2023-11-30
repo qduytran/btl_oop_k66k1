@@ -32,9 +32,12 @@
 * Ở phần dịch Google API, ở mỗi ô văn bản cũng đều có chức năng phát âm, lưu ý chức năng này chỉ phát âm được các từ La-tinh nói chung.
 * Có 4 game chơi để luyện việc học từ vựng Tiếng Anh:
 > Game trắc nghiệm yêu cầu bạn chọn đáp án được hiển thị phía dưới câu hỏi, nếu đúng/sai giao diện sẽ hiển thị thông báo. Nếu bạn trả lời đúng 5 câu mà chưa hết mạng thì chiến thắng game. Có 3 mạng, nếu còn 0 mạng thì coi như người chơi thua cuộc.
-> Game đoán từ yêu cầu bạn nhập vào chữ cái còn thiếu vào từ tiếng anh, khi đã biết nghĩa tiếng việt. Game này chưa có tính năng cộng điểm.
+
+> Game đoán từ yêu cầu bạn nhập vào chữ cái còn thiếu vào từ tiếng anh, khi đã biết nghĩa tiếng việt. Có tối đa 3 mạng cho 3 lần sai, trả lời đúng 5 câu mà chưa hết mạng thì chiến thắng game. Hết 3 mạng thì người hơi sẽ thua cuộc.
+
 > Game nối từ yêu cầu bạn nhập vào các từ có chữ cái đầu là chữ cái cuối của từ phía trước nó. Game này tính điểm cao nhất.
-> Game hang man yêu cầu người chơi nhập vào chữ cái còn thiếu dựa trên các từ gợi ý phía trước. Có tối đa 3 mạng, nếu hết mạng coi như bạn đoán sai từ.
+
+> Game hang man yêu cầu người chơi nhập vào chữ cái còn thiếu dựa trên các từ gợi ý phía trước. Có tối đa 3 mạng, nếu hết mạng coi như bạn hết lượt đoán, mỗi chữ cái đoán đúng bạn được cộng 1 điểm. Sau khi hết lượt đoán hoặc đoán đúng từ thì bạn có quyền chơi lại với từ khác.
 
 <p align="center">
 <img width="640" height="480" src="resources/image/translation.png">
